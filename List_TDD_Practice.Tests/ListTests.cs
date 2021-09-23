@@ -22,7 +22,7 @@ namespace List_TDD_Practice.Tests
 
             // In this case ___FILL_ME_IN__ is what you expect the value to be
             // and list.Count is the actual value provided by your program
-            Assert.Equal(__FILL_ME_IN__, list.Count);
+            Assert.Empty(list);
         }
 
         [Fact]
@@ -31,6 +31,7 @@ namespace List_TDD_Practice.Tests
             var list = new List<int>()
             {
                 // Add 3 items to the list here.
+                5, 7, 9
             };
 
             Assert.Equal(3, list.Count);
@@ -39,10 +40,14 @@ namespace List_TDD_Practice.Tests
         [Fact]
         public void Lists_Can_Have_Items_Added_After_They_Are_Created()
         {
+            // Arrange
             var list = new List<string>();
 
             // Use one of List's methods to add an item here.
+            // Act
+            list.Add("water");
 
+            // Assert
             Assert.NotEmpty(list);
         }
 
@@ -53,7 +58,7 @@ namespace List_TDD_Practice.Tests
 
             int indexOfSecondItem = list.IndexOf("Bar");
 
-            Assert.Equal(__FILL_ME_IN__, indexOfSecondItem);
+            Assert.Equal(1, indexOfSecondItem);
         }
 
         [Fact]
@@ -63,6 +68,8 @@ namespace List_TDD_Practice.Tests
 
             // Use one of List's methods to insert the number 2
             // in the correct position here.
+            // Act
+            list.Insert(1, 2);
 
             Assert.Equal(new List<int> { 1, 2, 3 }, list);
         }
@@ -73,6 +80,8 @@ namespace List_TDD_Practice.Tests
             var list = new List<int>() { 1, 2, 3, 4 };
 
             // Use one of List's methods to delete the item at index 2.
+            // Act
+            list.RemoveAt(2);
 
             Assert.Equal(new List<int> { 1, 2, 4 }, list);
         }
@@ -83,6 +92,8 @@ namespace List_TDD_Practice.Tests
             var list = new List<int>() { 1, 2, 42, 3 };
 
             // Use one of List's methods to delete the value 42.
+            // Act
+            list.Remove(42);
 
             Assert.Equal(new List<int> { 1, 2, 3 }, list);
         }
@@ -93,6 +104,7 @@ namespace List_TDD_Practice.Tests
             var list = new List<string>() { "Foo", "Bar", "Baz" };
 
             // Use an indexer (square brackets) to change "Bar" to "Quux".
+            list[1] = "Quux";
 
             Assert.Equal(new List<string> { "Foo", "Quux", "Baz" }, list);
         }
@@ -103,7 +115,7 @@ namespace List_TDD_Practice.Tests
             var list = new List<string>() { "Foo", "Bar", "Baz" };
 
             // What value does list[2] return?
-            Assert.Equal(__FILL_ME_IN__, list[2]);
+            Assert.Equal("Baz", list[2]);
         }
     }
 }
